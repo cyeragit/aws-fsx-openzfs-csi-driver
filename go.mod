@@ -1,6 +1,6 @@
 module github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver
 
-go 1.20
+go 1.24
 
 require (
 	github.com/aws/aws-sdk-go v1.47.11

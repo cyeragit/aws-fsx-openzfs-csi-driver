@@ -60,7 +60,7 @@ all: all-image-docker
 # Builds all images and pushes them
 .PHONY: all-push
 all-push: create-manifest-and-images
-	docker manifest push --purge $(IMAGE):$(TAG)
+	docker manifest push --purge $(IMAGE):$(TAdG)
 
 .PHONY: create-manifest-and-images
 create-manifest-and-images: all-image-registry
@@ -80,7 +80,7 @@ sub-image-%:
 .PHONY: image
 image: .image-$(TAG)-$(OS)-$(ARCH)-$(OSVERSION)
 .image-$(TAG)-$(OS)-$(ARCH)-$(OSVERSION):
-	docker buildx build \
+	docker buildx build --debug \
 		--platform=$(OS)/$(ARCH) \
 		--progress=plain \
 		--target=$(OS)-$(OSVERSION) \

@@ -14,7 +14,8 @@
 # See
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 # for info on BUILDPLATFORM, TARGETOS, TARGETARCH, etc.
-FROM --platform=$BUILDPLATFORM golang:1.20.4-bullseye AS go-builder
+# FROM --platform=$BUILDPLATFORM quay.io/rfcurated/golang:1.24.6-ubi9-fips-rfcurated AS go-builder
+FROM --platform=$BUILDPLATFORM golang:1.24.6-bullseye AS go-builder
 WORKDIR /go/src/github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver
 COPY . .
 ARG TARGETOS
